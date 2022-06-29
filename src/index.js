@@ -27,7 +27,8 @@ export default class SecureLS {
       isCompression: true,
       encodingType: constants.EncrytionTypes.BASE64,
       encryptionSecret: config.encryptionSecret,
-      encryptionNamespace: config.encryptionNamespace
+      encryptionNamespace: config.encryptionNamespace,
+      storageType: config.storageType || 'sessionStorage'
     };
     this.config.isCompression = typeof config.isCompression !== 'undefined' ?
       config.isCompression :
@@ -36,7 +37,7 @@ export default class SecureLS {
       config.encodingType.toLowerCase() :
       constants.EncrytionTypes.BASE64;
 
-    this.ls = localStorage;
+    this.ls = window[this.config.storageType];
     this.init();
   };
 
