@@ -11,10 +11,20 @@ Secure sessionStorage or localStorage data with high level of encryption and dat
 * Advanced API wrapper over `sessionStorage` or `localStorage` API, providing other basic utilities.
 * Save data in multiple keys inside `sessionStorage` or `localStorage` , and `secure-ls` will always remember it's creation.
 
-## Installation
+## Quickstart
 
+**1. Install**
 ```
 $ npm install @cbcheng/secure-ls
+```
+
+**2. Import**
+```
+// ES6 module syntax
+> import SecureLS from '@cbcheng/secure-ls';
+
+// CommonJS syntax
+> const SecureLS = require('@cbcheng/secure-ls');
 ```
 
 ## Libraries used
@@ -290,7 +300,7 @@ ES6 source files
 
 Many thanks to:
 
-* [@softvar](https://github.com/softvar) for secure-ls.
+* [@softvar](https://github.com/softvar) for **[secure-ls](https://www.npmjs.com/package/secure-ls)**.
 
 * [@brix](https://github.com/brix) for the awesome **[crypto-js](https://github.com/brix/crypto-js)** library for encrypting and decrypting data securely.
 
@@ -307,9 +317,4 @@ Many thanks to:
 >The [MIT license](https://opensource.org/licenses/MIT) (MIT)
 >
 >Copyright (c) 2022 Zhang Bing Cheng
->
->Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
->
->The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
->
->THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
