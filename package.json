@@ -1,8 +1,8 @@
 {
   "name": "@cbcheng/secure-ls",
   "version": "1.3.2",
-  "description": "Secure localStorage data with high level of encryption and data compression",
-  "main": "./dist/secure-ls.js",
+  "description": "Secure sessionStorage or localStorage data with high level of encryption and data compression",
+  "main": "./dist/secure-ls.min.js",
   "typings": "./dist/secure-ls.d.ts",
   "scripts": {
     "build": "webpack --mode=build",
