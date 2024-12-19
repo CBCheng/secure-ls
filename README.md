@@ -1,22 +1,30 @@
-# secure-ls
+# @cbcheng/secure-ls
 
-Secure localStorage data with high level of encryption and data compression.
+Secure sessionStorage or localStorage data with high level of encryption and data compression.
 
-[![npm version](https://badge.fury.io/js/secure-ls.svg)](https://www.npmjs.com/package/secure-ls) [![npm](https://img.shields.io/npm/dt/secure-ls.svg)](https://www.npmjs.com/package/secure-ls) [![Build Status](http://img.shields.io/travis/softvar/secure-ls/master.svg?style=flat)](http://travis-ci.org/softvar/secure-ls) [![Coverage Status](https://coveralls.io/repos/github/softvar/secure-ls/badge.svg?branch=master)](https://coveralls.io/github/softvar/secure-ls?branch=master)
-
-**[LIVE DEMO](http://softvar.github.io/secure-ls#live-demo)**
+**This package is adapted from [softvar](https://github.com/softvar/secure-ls).**
 
 ## Features
 
 * Secure data with various types of encryption including `AES`, `DES`, `Rabbit` and `RC4`. (defaults to `Base64` encoding).
-* Compress data before storing it to `localStorage` to save extra bytes (defaults to `true`).
-* Advanced API wrapper over `localStorage` API, providing other basic utilities.
-* Save data in multiple keys inside `localStorage` and `secure-ls` will always remember it's creation.
+* Compress data before storing it to `sessionStorage` or `localStorage` to save extra bytes (defaults to `true`).
+* Advanced API wrapper over `sessionStorage` or `localStorage` API, providing other basic utilities.
+* Save data in multiple keys inside `sessionStorage` or `localStorage` , and `secure-ls` will always remember it's creation.
 
-## Installation
+## Quickstart
 
+**1. Install**
 ```
-$ npm install secure-ls
+$ npm install @cbcheng/secure-ls
+```
+
+**2. Import**
+```
+// ES6 module syntax
+> import SecureLS from '@cbcheng/secure-ls';
+
+// CommonJS syntax
+> const SecureLS = require('@cbcheng/secure-ls');
 ```
 
 ## Libraries used
@@ -46,7 +54,7 @@ $ npm install secure-ls
   {data: 'test'}
 ```
 
-* Example 2: With `AES` Encryption and Data Compression
+* Example 2: With `AES` Encryption, sessionStorage and Data Compression
 
 ```
 > var ls = new SecureLS({encodingType: 'aes'});
@@ -91,6 +99,18 @@ $ npm install secure-ls
 
 ```
 
+* Example 4: set storage with `sessionStorage` or `localStorage`.
+
+```
+> var ls = new SecureLS(); // default to use sessionStorage
+
+> var ls = new SecureLS({storageType: 'sessionStorage'});  // use sessionStorage
+
+> var ls = new SecureLS({storageType: 'localStorage'});  // use localStorage
+
+```
+
+
 ## API Documentation
 
 #### Create an instance / reference before using.
@@ -108,6 +128,7 @@ var ls = new SecureLS();
 | **isCompression**        |     `true`     |    `true`/`false`                         |
 | **encryptionSecret**     |  PBKDF2 value  |    String                                 |
 | **encryptionNamespace**  |      null      |    String                                 |
+| **storageType**          | sessionStorage |    String `sessionStorage`/`localStorage` |
 
 **Note:** `encryptionSecret` will only be used for the Encryption and Decryption of data
 with `AES`, `DES`, `RC4`, `RABBIT`, and the library will discard it if no encoding / Base64
@@ -121,7 +142,7 @@ and/or different `encryptionSecret` possible.
 
 **Examples:**
 
-* No config or empty Object i.e. Default **`Base64 Encoding`** and **`Data compression`**
+* No config or empty Object i.e. Default **`Base64 Encoding`** and **`Data compression`** and **`sessionStorage`**
 
 ```
 var ls = new SecureLS();
@@ -241,15 +262,6 @@ var ls = new SecureLS({encodingType: 'rc4', isCompression: false, encryptionSecr
     ls.getAllKeys()
   ```
 
-## Screenshot
-
-<img src="screenshot.png" height="800">
-
-## Scripts
-
-* `npm run build` - produces production version of the library under the `dist` folder
-* `npm run dev` - produces development version of the library and runs a watcher
-* `npm run test` - well ... it runs the tests :)
 
 ## Contributing
 
@@ -288,6 +300,8 @@ ES6 source files
 
 Many thanks to:
 
+* [@softvar](https://github.com/softvar) for **[secure-ls](https://www.npmjs.com/package/secure-ls)**.
+
 * [@brix](https://github.com/brix) for the awesome **[crypto-js](https://github.com/brix/crypto-js)** library for encrypting and decrypting data securely.
 
 * [@pieroxy](https://github.com/pieroxy) for the **[lz-string](https://github.com/pieroxy/lz-string)** js library for data compression / decompression.
@@ -302,10 +316,5 @@ Many thanks to:
 
 >The [MIT license](https://opensource.org/licenses/MIT) (MIT)
 >
->Copyright (c) 2015-2016 Varun Malhotra
->
->Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
->
->The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
->
->THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+>Copyright (c) 2022 Zhang Bing Cheng
+
